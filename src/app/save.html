@@ -1,0 +1,78 @@
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="30">
+        <br>
+        <h1 class="text-indigo-600"><strong class="ml-16">Sign Up</strong></h1><br>
+        <form fxLayoutAlign="streth" fxLayout="column" [formGroup]="signupForm">
+
+            <!-- first name -->
+            <mat-form-field class="example-full-width example-form" appearance="fill">
+                <mat-label>First name</mat-label>
+                <input matInput formControlName="firstName">
+
+                <mat-error *ngIf="signupForm.get('firstName')?.hasError('required')">
+                    Please enter your first name
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('firstName')?.hasError('minlength')">
+                     The first name must be longer than 3 characters
+                </mat-error>
+            </mat-form-field>
+
+            <!-- last name -->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Last name</mat-label>
+                <input matInput formControlName="lastName">
+
+                <mat-error *ngIf="signupForm.get('lastName')?.hasError('required')">
+                    Please enter your last name
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('lastName')?.hasError('maxlength')">
+                    The last name must be less than 30 characters
+                </mat-error>
+            </mat-form-field>
+
+            <!-- email -->
+            <mat-form-field example-full-width appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="email" required>
+                <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+
+            <!-- password ===> cross-field validation -->
+            <div formGroupName="passwordGroup">
+               <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password">
+                    <mat-error *ngIf="!signupForm.get('passwordGroup.password')?.dirty">
+                        Eenter your password
+                    </mat-error>    
+                    <mat-error *ngIf="signupForm.get('passwordGroup.password')?.invalid">
+                        {{passwordMessage}}
+                    </mat-error>                   
+                </mat-form-field> 
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Confirm password</mat-label>
+                    <input matInput formControlName="confirmPassword">
+                    <mat-error *ngIf="!signupForm.get('passwordGroup.confirmPassword')?.dirty">
+                        Confirm your password
+                    </mat-error>
+                    <mat-error>
+                        
+
+                    </mat-error>
+
+                        
+                </mat-form-field> 
+            </div>
+            
+
+        </form>
+
+    </mat-card>
+</div>
