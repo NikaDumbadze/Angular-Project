@@ -19,13 +19,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './core/user/login-page/login-page.component';
 import { SignupPageComponent } from './core/user/signup-page/signup-page.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './core/dashboard/dashboard.component';
+import { NavigationComponent } from './core/navigation/navigation.component';
+import { ProductListComponent } from './core/products/product-list.component';
+
+
+
+
+
+
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    DashboardComponent,
+    NavigationComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +55,13 @@ import { SignupPageComponent } from './core/user/signup-page/signup-page.compone
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
+    HttpClientModule
+   
     
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -1,15 +1,15 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-    <mat-card fxFlex="30" class="p-0 bg-slate-200">
+    <mat-card fxFlex="30" class="p-0 bg-slate-300">
         <br>
         <h1 class="text-indigo-600"><strong class="ml-16">Sign in to your account</strong></h1>
-        <form fxLayoutAlign="streth" fxLayout="column" class="p-8">
+        <form fxLayoutAlign="streth" fxLayout="column" class="p-8" [formGroup]="loginForm" (submit)="login()">
             <!-- username -->
             <mat-form-field>
                 <mat-label>
-                    <mat-icon>perm_identity</mat-icon> Username
+                    <mat-icon>perm_identity</mat-icon> Email address
                 </mat-label>
-                <input matInput [formControl]="email" required>
-                <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+                <input matInput formControlName="email" required>
+                <mat-error *ngIf="loginForm.get('email')?.invalid">{{getEmailErrorMessage()}}</mat-error>
             </mat-form-field>
             <br>
             <!-- password -->
@@ -17,8 +17,8 @@
                 <mat-label>
                     <mat-icon>lock</mat-icon> Password
                 </mat-label>
-                <input matInput type="password" [type]="hide ? 'password' : 'text'" [formControl]="password">
-                <mat-error *ngIf="password.invalid">{{passwordErrorMessage}}</mat-error>
+                <input matInput type="password" [type]="hide ? 'password' : 'text'" formControlName="password">
+                <mat-error *ngIf="loginForm.get('password')?.invalid">{{passwordErrorMessage}}</mat-error>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

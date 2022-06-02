@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "usersSignup": [
+    {
+      "firstName": "nika",
+      "lastName": "dumbadze",
+      "email": "nikadumbadze4@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "id": 1
+    }
+  ],
+  "usersLogin": [
+    {
+      "email": "nikadumbadze4@gmail.com",
+      "password": "123",
+      "id": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
