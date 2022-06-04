@@ -1,10 +1,9 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
-const apiSignup = 'http://localhost:3000/usersSignup';
-const apiLogin = 'http://localhost:3000/usersLogin';
+const api = 'http://localhost:3000/users';
 
 
 @Injectable({
@@ -15,15 +14,8 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 
-  login(email: string, password: string): Observable<any>{
-    return this.http.post(apiLogin,{
-      email,
-      password
-    });
-  }
-
-  signUp(firstName: string, lastName: string, email: string, password: string, confirmPassword: string) {
-    return this.http.post(apiSignup, {
+  signUp(firstName: string, lastName: string, email: string, password: string, confirmPassword: string): Observable<any> {
+    return this.http.post(api, {
       firstName,
       lastName,
       email,

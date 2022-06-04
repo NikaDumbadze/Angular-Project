@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
 import { ICustomKeys } from 'src/app/models/ICustomKeys';
 import { IUser } from 'src/app/models/IUser';
-import { AuthService } from 'src/app/services/auth.service';
+import { ApiService } from 'src/app/services/api.service';
 
 function passwordMatcher(
   c: AbstractControl
@@ -32,7 +32,6 @@ function passwordMatcher(
 @Component({
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
-  styleUrls: ['./signup-page.component.scss'],
 })
 export class SignupPageComponent implements OnInit {
   signupForm!: FormGroup;
@@ -46,7 +45,7 @@ export class SignupPageComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private authServise: AuthService
+    private apiServise: ApiService
   ) {}
 
   ngOnInit(): void {
@@ -80,15 +79,16 @@ export class SignupPageComponent implements OnInit {
   }
 
   signUp() {
-    this.authServise.signUp(
+    this.apiServise.signUp(
       this.signupForm.get('firstName')?.value,
       this.signupForm.get('lastName')?.value,
       this.signupForm.get('email')?.value,
       this.signupForm.get('passwordGroup.password')?.value,
       this.signupForm.get('passwordGroup.confirmPassword')?.value,
-    ).subscribe((respnse)=> {
+    ).subscribe((respnse: any)=> {
       this.signupForm.reset();
-      this.router.navigate(['/dashboard']);
+      alert('Registration completed successfully, please log in');
+      this.router.navigate(['/login']);
     })
     
   }

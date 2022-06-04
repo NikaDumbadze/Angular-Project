@@ -6,21 +6,38 @@
       "author": "typicode"
     }
   ],
-  "usersSignup": [
+  "users": [
     {
-      "firstName": "nika",
-      "lastName": "dumbadze",
-      "email": "nikadumbadze4@gmail.com",
-      "password": "12345678",
-      "confirmPassword": "12345678",
-      "id": 1
-    }
-  ],
-  "usersLogin": [
-    {
+      "firstName": "Nika",
+      "lastName": "Dumbadze",
       "email": "nikadumbadze4@gmail.com",
       "password": "123",
+      "confirmPassword": "123",
       "id": 1
+    },
+    {
+      "firstName": "Nika",
+      "lastName": "Dumbadze",
+      "email": "nikadumbadze4@gmail.com",
+      "password": "1",
+      "confirmPassword": "1",
+      "id": 2
+    },
+    {
+      "firstName": "1",
+      "lastName": "1",
+      "email": "n@gmail.com",
+      "password": "1",
+      "confirmPassword": "1",
+      "id": 3
+    },
+    {
+      "firstName": "Nika",
+      "lastName": "Dumbadze",
+      "email": "nikadumbadze4@gmail.com",
+      "password": "ff",
+      "confirmPassword": "ff",
+      "id": 4
     }
   ],
   "profile": {
